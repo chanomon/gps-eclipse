@@ -4,6 +4,7 @@ We'll use gpsd, this is a service daemon that monitors one or more GPSes or AIS 
 
 ## Installation
 You need to install gpsd, an aplication for GNU/linux. 
+
 **Ubuntu**:
 ```
 sudo apt-get update
@@ -18,6 +19,7 @@ sudo dnf install gpsd gpsd-clients
 sudo pacman -S gpsd gpsd-clients
 ```
 Configure gpsd:
+
 **Ubuntu**
 ```
 sudo nano /etc/default/gpsd
@@ -44,7 +46,8 @@ gpsmon
 This will display an gps interface showing the gps recordings.
 To stop gpsmon use Ctr-c
 
-**Note**Make sure you have the correct permissions to read/write with the gps device:
+**Note**
+Make sure you have the correct permissions to read/write with the gps device:
 ```
 sudo usermod -aG dialout $USER
 ```
