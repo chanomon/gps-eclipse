@@ -18,6 +18,8 @@ sudo dnf install gpsd gpsd-clients
 ```
 sudo pacman -S gpsd gpsd-clients
 ```
+Get sure you have your gps receptor connected to your system.
+
 Configure gpsd:
 
 **Ubuntu**
@@ -71,4 +73,14 @@ To stop gpsd:
 sudo systemctl stop gpsd
 #for systems that use init.d:
 sudo service gpsd stop
+```
+## Getting gps with python
+Run the python code included in this repo, get sure you have installed gps3 library.
+If not you can do this with:
+```
+pip3 install --upgrade gps3 gpsd-py
+```
+Then run 
+```
+python gps.py
 ```
