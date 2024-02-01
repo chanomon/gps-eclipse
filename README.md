@@ -57,24 +57,30 @@ Check conection, in terminal write:
 ```
 gpsmon
 ```
+or this
+```
+cgps
+```
 This will display an gps interface showing the gps recordings, something like this:
 ![image](https://github.com/chanomon/gps-eclipse/assets/19211938/89797f05-85ee-467d-8380-d52327799141)
+or in cgps case, this:
+![image](https://github.com/chanomon/gps-eclipse/assets/19211938/221b10e1-9e7a-48aa-94d7-37b82ee64e1c)
 
-To stop gpsmon use Ctr-c
+To stop gpsmon or cgps use Ctr-c
 
 **Note**
 Make sure you have the correct permissions to read/write with the gps device:
 ```
 sudo usermod -aG dialout $USER
 ```
-To stop gpsd:
+To stop gpsd service:
 ```
 #for systems that use Systemd:
 sudo systemctl stop gpsd
 #for systems that use init.d:
 sudo service gpsd stop
 ```
-## Getting gps with python
+## Getting gps data with python
 Run the python code included in this repo, get sure you have installed gps3 library.
 If not you can do this with:
 ```
