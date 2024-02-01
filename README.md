@@ -1,6 +1,5 @@
 # gps-eclipse
 A distributed system to read and save gps data in a server for the 2024 eclipse.
-
 We'll use gpsd, this is a service daemon that monitors one or more GPSes or AIS receivers attached to a host computer through serial or USB ports, making all data on the location/course/velocity of the sensors available to be queried on TCP port 2947 of the host computer.
 
 ## Installation
