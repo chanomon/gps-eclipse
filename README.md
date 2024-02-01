@@ -1,5 +1,5 @@
 # gps-eclipse
-A distributed system to read and save gps data in a server for the 2024 eclipse
+A distributed system to read and save gps data in a server for the 2024 eclipse.
 We'll use gpsd, this is a service daemon that monitors one or more GPSes or AIS receivers attached to a host computer through serial or USB ports, making all data on the location/course/velocity of the sensors available to be queried on TCP port 2947 of the host computer.
 
 ## Installation
@@ -18,6 +18,8 @@ sudo dnf install gpsd gpsd-clients
 ```
 sudo pacman -S gpsd gpsd-clients
 ```
+Get sure you have your gps receptor connected to your system.
+
 Configure gpsd:
 
 **Ubuntu**
@@ -55,20 +57,36 @@ Check conection, in terminal write:
 ```
 gpsmon
 ```
+or this
+```
+cgps
+```
 This will display an gps interface showing the gps recordings, something like this:
 ![image](https://github.com/chanomon/gps-eclipse/assets/19211938/89797f05-85ee-467d-8380-d52327799141)
+or in cgps case, this:
+![image](https://github.com/chanomon/gps-eclipse/assets/19211938/221b10e1-9e7a-48aa-94d7-37b82ee64e1c)
 
-To stop gpsmon use Ctr-c
+To stop gpsmon or cgps use Ctr-c
 
 **Note**
 Make sure you have the correct permissions to read/write with the gps device:
 ```
 sudo usermod -aG dialout $USER
 ```
-To stop gpsd:
+To stop gpsd service:
 ```
 #for systems that use Systemd:
 sudo systemctl stop gpsd
 #for systems that use init.d:
 sudo service gpsd stop
+```
+## Getting gps data with python
+Run the python code included in this repo, get sure you have installed gps3 library.
+If not, you can do this with:
+```
+pip3 install --upgrade gps3 gpsd-py
+```
+Finally run 
+```
+python gps.py
 ```
