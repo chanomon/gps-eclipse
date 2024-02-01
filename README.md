@@ -25,6 +25,18 @@ Configure gpsd:
 sudo nano /etc/default/gpsd
 ```
 
+**Fedora**
+```
+sudo nano /etc/sysconfig/gpsd
+```
+
+**Arch Linux**
+```
+sudo nano /etc/conf.d/gpsd
+
+```
+
+
 Edit the file like this:
 ```
 # Make sure this configuration is done accordingly to your needs
