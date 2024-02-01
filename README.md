@@ -82,11 +82,11 @@ sudo service gpsd stop
 ```
 ## Getting gps data with python
 Run the python code included in this repo, get sure you have installed gps3 library.
-If not you can do this with:
+If not, you can do this with:
 ```
 pip3 install --upgrade gps3 gpsd-py
 ```
-Then run 
+Finally run 
 ```
 python gps.py
 ```
