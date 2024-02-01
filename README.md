@@ -63,8 +63,11 @@ cgps
 ```
 This will display an gps interface showing the gps recordings, something like this:
 ![image](https://github.com/chanomon/gps-eclipse/assets/19211938/89797f05-85ee-467d-8380-d52327799141)
+
 or in cgps case, this:
-![image](https://github.com/chanomon/gps-eclipse/assets/19211938/221b10e1-9e7a-48aa-94d7-37b82ee64e1c)
+
+![image](https://github.com/chanomon/gps-eclipse/assets/19211938/2458db41-780e-4e34-90ab-5b779c793c4c)
+
 
 To stop gpsmon or cgps use Ctr-c
 
