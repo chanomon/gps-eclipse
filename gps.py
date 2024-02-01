@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #import gpsd
 #import time
 #
@@ -34,3 +35,23 @@ except KeyboardInterrupt:
     print('\nCerrando la conexión con gpsd')
 finally:
     gps_socket.close()
+=======
+import gpsd
+
+# Connect to the local gpsd
+gpsd.connect()
+
+# Get gps position
+packet = gpsd.get_current()
+
+# Check if there is a 2D fix
+if packet.mode < 2:
+    print("No 2D fix available yet. Waiting for a fix...")
+else:
+    # Print the position if there is a fix
+    print("Latitude: ", packet.lat)
+    print("Longitude: ", packet.lon)
+    print("Altitude: ", packet.alt)
+
+# See the inline docs for GpsResponse for other available data
+>>>>>>> 2fb2770033e309920f2c94c363e885c38dcc8de4
