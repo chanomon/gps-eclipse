@@ -71,6 +71,12 @@ or in cgps case, this:
 
 To stop gpsmon or cgps use Ctr-c
 
+Also, to see gpsd status, use:
+```
+sudo service gpsd status
+```
+
+
 **Note**
 Make sure you have the correct permissions to read/write with the gps device:
 ```
@@ -84,12 +90,14 @@ sudo systemctl stop gpsd
 sudo service gpsd stop
 ```
 ## Getting gps data with python
-Run the python code included in this repo, get sure you have installed gps3 library.
+Run one of the python codes included in this repo, get sure you have installed gps3 or gpsd-py3 library.
 If not, you can do this with:
 ```
-pip3 install --upgrade gps3 gpsd-py
+pip3 install --upgrade gps3 gpsd-py3
 ```
 Finally run 
 ```
 python gps.py
+#or alternativelly 
+python gps2.py
 ```
