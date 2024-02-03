@@ -25,29 +25,27 @@ try:
     for new_data in gps_socket:
         if new_data:
             data_stream.unpack(new_data)
-	    satellites_info = data_stream.TPV.get('satellites', [])
+            satellites_info = data_stream.TPV.get('satellites', [])
 
-	    time = data_stream.TPV.get('time', 'N/A')
-	    lat = data_stream.TPV.get('lat', 'N/A')
-	    lon = data_stream.TPV.get('lon', 'N/A')
-	    alt = data_stream.TPV.get('alt', 'N/A')
+            time = data_stream.TPV.get('time', 'N/A')
+            lat = data_stream.TPV.get('lat', 'N/A')
+            lon = data_stream.TPV.get('lon', 'N/A')
+            alt = data_stream.TPV.get('alt', 'N/A')
     
-	    print(f"Time: {time}, Latitude: {lat}, Longitude: {lon}, Altitude: {alt}")
-		
-	    for satellite in satellites_info:
-	        prn = satellite.get('PRN', 'N/A')
-		elevation = satellite.get('el', 'N/A')
-		azimuth = satellite.get('az', 'N/A')
-		snr = satellite.get('ss', 'N/A')
-		used = satellite.get('used', False)
-		
-		print(f"Sat PRN: {prn},  Elevation: {elevation}, Azimuth: {azimuth}, SNR: {snr}, Used: {used}")
-		
-		                
-            #else:
-            #    print('Esperando una fijación 2D o 3D...')
+            print(f"Time: {time}, Latitude: {lat}, Longitude: {lon}, Altitude: {alt}")
+        
+            for satellite in satellites_info:
+                prn = satellite.get('PRN', 'N/A')
+                elevation = satellite.get('el', 'N/A')
+                azimuth = satellite.get('az', 'N/A')
+                snr = satellite.get('ss', 'N/A')
+                used = satellite.get('used', False)
+        
+                print(f"Sat PRN: {prn}, Elevation: {elevation}, Azimuth: {azimuth}, SNR: {snr}, Used: {used}")
+        
+            # else:
+            #     print('Esperando una fijación 2D o 3D...')
 
-            
 except KeyboardInterrupt:
     print('\nCerrando la conexión con gpsd')
 finally:
