@@ -33,7 +33,7 @@ try:
             alt = data_stream.TPV.get('alt', 'N/A')
     
             print(f"Time: {time}, Latitude: {lat}, Longitude: {lon}, Altitude: {alt}")
-        
+            print(satellites_info)
             for satellite in satellites_info:
                 prn = satellite.get('PRN', 'N/A')
                 elevation = satellite.get('el', 'N/A')
