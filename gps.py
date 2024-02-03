@@ -32,7 +32,7 @@ try:
             lon = data_stream.TPV.get('lon', 'N/A')
             alt = data_stream.TPV.get('alt', 'N/A')
     
-            print(f"Time: {time}, Latitude: {lat}, Longitude: {lon}, Altitude: {alt}")
+            
         
             for satellite in satellites_info:
                 prn = satellite.get('PRN', 'N/A')
@@ -42,7 +42,8 @@ try:
                 used = satellite.get('used', False)
         
                 print(f"Sat PRN: {prn}, Elevation: {elevation}, Azimuth: {azimuth}, SNR: {snr}, Used: {used}")
-        
+			
+			print(f"Time: {time}, Latitude: {lat}, Longitude: {lon}, Altitude: {alt}")
             # else:
             #     print('Esperando una fijación 2D o 3D...')
 
