@@ -27,12 +27,6 @@ try:
 
             data_stream.unpack(new_data)
             satellites_info = data_stream.SKY.get('satellites', [])
-            time_ = data_stream.TPV.get('time', 'N/A')
-            lat = data_stream.TPV.get('lat', 'N/A')
-            lon = data_stream.TPV.get('lon', 'N/A')
-            alt = data_stream.TPV.get('alt', 'N/A')
-            print(f"------TPV DATA------\nTime: {time_}, Latitude: {lat}, Longitude: {lon}, Altitude: {alt}")
-            
             
             if type(satellites_info) is list:#else is a str and has no info
                 print("------SATELLITES DATA------")
@@ -44,6 +38,13 @@ try:
                     snr = satellite.get('ss', 'N/A')
                     used = satellite.get('used', False)
                     print(f"Constellation: {constellation}, Elevation: {elevation}, Azimuth: {azimuth}, SNR: {snr}, Used: {used}")
+            
+            time_ = data_stream.TPV.get('time', 'N/A')
+            lat = data_stream.TPV.get('lat', 'N/A')
+            lon = data_stream.TPV.get('lon', 'N/A')
+            alt = data_stream.TPV.get('alt', 'N/A')
+            print(f"------TPV DATA------\nTime: {time_}, Latitude: {lat}, Longitude: {lon}, Altitude: {alt}")
+            
             #time.sleep(1)
             # else:
             #     print('Esperando una fijación 2D o 3D...')
