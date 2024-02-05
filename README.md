@@ -89,6 +89,8 @@ sudo systemctl stop gpsd
 #for systems that use init.d:
 sudo service gpsd stop
 ```
+#GPDS request/response protocol:
+[https://gpsd.gitlab.io/gpsd/gpsd_json.html](https://gpsd.gitlab.io/gpsd/gpsd_json.html)
 ## Getting gps data with python
 Run one of the python codes included in this repo, get sure you have installed gps3 or gpsd-py3 library.
 If not, you can do this with:
