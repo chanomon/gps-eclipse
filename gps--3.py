@@ -1,33 +1,76 @@
-import gps               # the gpsd interface module
+#!/usr/bin/env python3
 
-session = gps.gps(mode=gps.WATCH_ENABLE)
+from gps3 import gps3
+import time
+import json
+from datetime import datetime
+
+gnssid_mapping = {
+    0: 'GPS',
+    1: 'SBAS',
+    2: 'Galileo',
+    3: 'BeiDou',
+    4: 'IMES',
+    5: 'QZSS',
+    6: 'GLONASS',
+    7: 'NavIC'
+}
+
+gps_socket = gps3.GPSDSocket()
+data_stream = gps3.DataStream()
+
+gps_socket.connect(host="127.0.0.1", port=2947)
+gps_socket.watch()
+
+end_time = time.time() + 60
 
 try:
-    while 0 == session.read():
-        if not (gps.MODE_SET & session.valid):
-            # not useful, probably not a TPV message
-            continue
-
-        print('Mode: %s(%d) Time: ' %
-              (("Invalid", "NO_FIX", "2D", "3D")[session.fix.mode],
-               session.fix.mode), end="")
-        # print time, if we have it
-        if gps.TIME_SET & session.valid:
-            print(session.fix.time, end="")
-        else:
-            print('n/a', end="")
-
-        if ((gps.isfinite(session.fix.latitude) and
-             gps.isfinite(session.fix.longitude))):
-            print(" Lat %.6f Lon %.6f" %
-                  (session.fix.latitude, session.fix.longitude))
-        else:
-            print(" Lat n/a Lon n/a")
-
+    records = [] 
+    for new_data in gps_socket:
+        if new_data:
+            data_stream.unpack(new_data)
+            satellites_info = data_stream.SKY.get('satellites', [])
+            if type(satellites_info) is list:
+                satellite_records = []  # Lista para almacenar registros de satélites
+                for satellite in satellites_info:
+                    gnssid = satellite.get('gnssid', 'N/A')
+                    constellation = gnssid_mapping.get(gnssid, 'UNKOWN')
+                    elevation = satellite.get('el', 'N/A')
+                    azimuth = satellite.get('az', 'N/A')
+                    snr = satellite.get('ss', 'N/A')
+                    used = satellite.get('used', False)
+                    satellite_record = {
+                        'Constellation': constellation,
+                        'Elevation': elevation,
+                        'Azimuth': azimuth,
+                        'SNR': snr,
+                        'Used': used
+                    }
+                    satellite_records.append(satellite_record)
+                time_ = data_stream.TPV.get('time', 'N/A')
+                lat = data_stream.TPV.get('lat', 'N/A')
+                lon = data_stream.TPV.get('lon', 'N/A')
+                alt = data_stream.TPV.get('alt', 'N/A')
+                record = {
+                    'Time': time_,
+                    'Latitude': lat,
+                    'Longitude': lon,
+                    'Altitude': alt,
+                    'Satellites': satellite_records
+                }
+                records.append(record)
+                print(f"------TPV DATA------\nTime: {time_}, Latitude: {lat}, Longitude: {lon}, Altitude: {alt}")
+        if time.time() > end_time:#save as json
+            first_time = records[0]['Time']
+            timestamp = datetime.strptime(first_time, '%Y-%m-%dT%H:%M:%S.%fZ').strftime('%Y-%m-%d_%H-%M-%S')
+            filename = f'gps_records_{timestamp}.json'
+            with open(filename, 'w') as file:
+                json.dump(records, file, indent=2)
+            #start_time = time.time()
+            end_time = end_time + 60
+            records = []
+            print('------SAVED 1 MIN RECORD------')
 except KeyboardInterrupt:
-    # got a ^C.  Say bye, bye
-    print('')
-
-# Got ^C, or fell out of the loop.  Cleanup, and leave.
-session.close()
-exit(0)
+    print('\nCerrando la conexión con gpsd')
+finally:
+    gps_socket.close()
