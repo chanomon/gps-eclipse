@@ -92,6 +92,15 @@ sudo service gpsd stop
 ## GPDS request/response protocol:
 [https://gpsd.gitlab.io/gpsd/gpsd_json.html](https://gpsd.gitlab.io/gpsd/gpsd_json.html)
 
+## GPSRINEX
+Use gpsrinex to produce RINEX files from the GPS data. Use the command:
+```
+gpsrinex -i 30 -n 2 localhost:2947:/dev/gps0 # check the path of your gps device, in this case is /dev/gps0
+```
+Use ```gpsrinex -h``` to print usage message.
+
+Here you can find more documentation of gps rinex: [https://gpsd.gitlab.io/gpsd/gpsrinex.html](https://gpsd.gitlab.io/gpsd/gpsrinex.html)
+
 ## Getting gps data with python
 Run one of the python codes included in this repo, get sure you have installed gps3 or gpsd-py3 library.
 If not, you can do this with:
