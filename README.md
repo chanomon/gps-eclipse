@@ -95,7 +95,7 @@ sudo service gpsd stop
 ## GPSRINEX
 Use gpsrinex to produce RINEX files from the GPS data. Use the command:
 ```
-gpsrinex -i 30 -n 2 localhost:2947:/dev/gps0 # check the path of your gps device, in this case is /dev/gps0
+gpsrinex -i 30 -n 30 localhost:2947:/dev/gps0 # check the path of your gps device, in this case is /dev/gps0
 ```
 Use ```gpsrinex -h``` to print usage message.
 
