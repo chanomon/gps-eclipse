@@ -101,6 +101,13 @@ Use ```gpsrinex -h``` to print usage message.
 
 Here you can find more documentation of gps rinex: [https://gpsd.gitlab.io/gpsd/gpsrinex.html](https://gpsd.gitlab.io/gpsd/gpsrinex.html)
 
+Once the proces ends, you could get a file of observation like this:
+
+![image](https://github.com/chanomon/gps-eclipse/assets/19211938/35ae3b1e-f98a-4866-8ced-89a4272b6dfa)
+
+
+
+
 ## Getting gps data with python
 Run one of the python codes included in this repo, get sure you have installed gps3 or gpsd-py3 library.
 If not, you can do this with:
