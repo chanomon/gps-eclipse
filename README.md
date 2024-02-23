@@ -120,3 +120,17 @@ python gps.py
 #or alternativelly 
 python gps2.py
 ```
+
+
+## Saving binary data from gpsd:
+```
+gpspipe -x 900 -R localhost:2947:/dev/gps0 > outfile.ubx
+```
+the number after "-x" indicates de number of seconds for recording.
+
+## Convert binary file to rinex file:
+Having previously installed RTKLIB, use the comand:
+```
+convbin -f 1 outfile.ubx -o rinexfile.obs
+```
+voila, now you have a rinex file.
