@@ -1,1 +1,1 @@
-*/15 * * * * ssh /tmp/send-gps-data/* ehuipe@132.247.186.69:/tmp/receive-gps-data/
+*/15 * * * * ssh /tmp/send-gps-data/* user@server:/tmp/receive-gps-data/
