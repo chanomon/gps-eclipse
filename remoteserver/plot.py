@@ -5,15 +5,15 @@ import json
 from datetime import datetime
 
 
-directorio = '/tmp/receive-gps-data/'
+directorio = input('Write the ubication path of your json files )')
 
 
-start_time_str = input("Ingrese el start time en el formato 'YYYY-MM-DDTHH:MM:SS': ")
-end_time_str = input("Ingrese el end time en el formato 'YYYY-MM-DDTHH:MM:SS': ")
+#start_time_str = input("Ingrese el start time en el formato 'YYYY-MM-DDTHH:MM:SS': ")
+#end_time_str = input("Ingrese el end time en el formato 'YYYY-MM-DDTHH:MM:SS': ")
 
 
-start_time = datetime.strptime(start_time_str, '%Y-%m-%dT%H:%M:%S')
-end_time = datetime.strptime(end_time_str, '%Y-%m-%dT%H:%M:%S')
+#start_time = datetime.strptime(start_time_str, '%Y-%m-%dT%H:%M:%S')
+#end_time = datetime.strptime(end_time_str, '%Y-%m-%dT%H:%M:%S')
 # Obtener la lista de archivos JSON en el directorio
 jsonfiles = [archivo for archivo in os.listdir(directorio) if archivo.endswith('.json')]
 print(jsonfiles)
