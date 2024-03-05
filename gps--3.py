@@ -16,6 +16,7 @@ gnssid_mapping = {
     7: 'NavIC'
 }
 
+PATH = '/tmp/send-gps-data/'
 gps_socket = gps3.GPSDSocket()
 data_stream = gps3.DataStream()
 
@@ -67,7 +68,7 @@ try:
             first_time = records[0]['Time']
             timestamp = datetime.strptime(first_time, '%Y-%m-%dT%H:%M:%S.%fZ').strftime('%Y-%m-%d_%H-%M-%S')
             filename = f'gps_records_{timestamp}.json'
-            with open(filename, 'w') as file:
+            with open(PATH+filename, 'w') as file:
                 json.dump(records, file, indent=2)
             #start_time = time.time()
             end_time = end_time + 60
