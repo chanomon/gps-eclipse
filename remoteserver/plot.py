@@ -4,9 +4,16 @@ import matplotlib.pyplot as plt
 import json
 from datetime import datetime
 
-# Ruta al directorio que contiene los archivos JSON
-directorio = '/home/elizandro/MEGA/MEGAsync/code/gps-eclipse/'
 
+directorio = '/tmp/receive-gps-data/'
+
+
+start_time_str = input("Ingrese el start time en el formato 'YYYY-MM-DDTHH:MM:SS': ")
+end_time_str = input("Ingrese el end time en el formato 'YYYY-MM-DDTHH:MM:SS': ")
+
+
+start_time = datetime.strptime(start_time_str, '%Y-%m-%dT%H:%M:%S')
+end_time = datetime.strptime(end_time_str, '%Y-%m-%dT%H:%M:%S')
 # Obtener la lista de archivos JSON en el directorio
 jsonfiles = [archivo for archivo in os.listdir(directorio) if archivo.endswith('.json')]
 print(jsonfiles)
