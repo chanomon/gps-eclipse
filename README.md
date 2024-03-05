@@ -163,7 +163,8 @@ python remoteserver/plot.py
 ```
 The prompt will ask for the path of the files, write it and then press enter.
 You should get a plot like this:
-![Image](https://github.com/chanomon/gps-eclipse/blob/main/plot.png)
+<img src="https://github.com/chanomon/gps-eclipse/blob/main/plot.png" width="60%" height="60%">
+
 
 ## Saving binary data from gpsd:
 ```
