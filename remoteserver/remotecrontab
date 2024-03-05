@@ -1,0 +1,1 @@
+*/15 * * * * find /tmp/receive-gps-data -type f -mmin +5 -delete
