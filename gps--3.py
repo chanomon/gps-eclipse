@@ -51,6 +51,9 @@ try:
                 lat = data_stream.TPV.get('lat', 'N/A')
                 lon = data_stream.TPV.get('lon', 'N/A')
                 alt = data_stream.TPV.get('alt', 'N/A')
+                ###################################################
+                ######## Saving receiver data and Satellites data.
+                ###################################################
                 record = {
                     'Time': time_,
                     'Latitude': lat,
@@ -69,7 +72,9 @@ try:
             #start_time = time.time()
             end_time = end_time + 60
             records = []
-            print('------SAVED 1 MIN RECORD------')
+            print('######################################\n'
+                     '####------SAVED 1 MIN RECORD------####\n'
+                     '######################################')
 except KeyboardInterrupt:
     print('\nCerrando la conexión con gpsd')
 finally:
