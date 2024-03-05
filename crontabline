@@ -1,1 +1,1 @@
-*/15 * * * * /ruta/a/tu/script.sh >> /ruta/a/tu/archivo.log 2>&1
+*/15 * * * * ssh /tmp/send-gps-data/* ehuipe@132.247.186.69:/tmp/receive-gps-data/
