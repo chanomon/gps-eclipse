@@ -113,35 +113,35 @@ With this codes we will record gps data and send them via SCP to a remote server
 
 To do this, first we will share a rsa key to move the files via SCP without writing the password.
 In terminal, type:
-´´´
+```
 ssh-keygen
-´´´
+```
 With this command you''ll obtain two files: *id_rsa.pub* (public key) and *id_rsa* (private key)
 Send the public key to the remote server to make scp/ssh connections witohut password:
-´´´
+```
 ssh-copy-id user@remote_server:/path_to_save/id_rsa.pub
-´´´
+```
 
 Now you need to install a local crontab comand.
 To do this, copy the content in *localcrontab* file.
 Then run this comand:
-´´´
+```
 crontab -e
-´´´
+```
 If it's your first time with crontab, you'll need to select a text editor.
 Then at the last line of the file, paste the content of *localcrontab*
 Make sure you have the right user, ip adress of the remote server and the correct paths.
 Press enter to add a new line in the file and save it.
 
 Simimlarlly make the same processes in the remote server, this time copy the content in *remoteserver/remotecrontab* and paste it in the crontab file after using
-´´´
+```
 crontab -e
-´´´
+```
 
 
 In the system where you have the gps system, run one of the python codes included in this repo, get sure you have installed gps3 or gpsd-py3 library.
 If not, you can do this with:
-```
+``` 
 pip3 install --upgrade gps3 gpsd-py3
 ```
 
