@@ -1,0 +1,1 @@
+*/15 * * * * /ruta/a/tu/script.sh >> /ruta/a/tu/archivo.log 2>&1
