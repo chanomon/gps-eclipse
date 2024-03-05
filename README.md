@@ -1,6 +1,7 @@
 # gps-eclipse
 A distributed system to read and save gps data in a server for the 2024 eclipse.
 We'll use gpsd, this is a service daemon that monitors one or more GPSes or AIS receivers attached to a host computer through serial or USB ports, making all data on the location/course/velocity of the sensors available to be queried on TCP port 2947 of the host computer.
+Then we will send the data with SCP to a remote server and save them in directories accordongly to date name of the files.
 
 ## Installation
 You need to install gpsd, an aplication for GNU/linux. 
@@ -153,8 +154,16 @@ python gps2.py
 ```
 
 
-
-
+## Plotting the data
+In the remote server you can plot the data with *remoteserver/plot.py*
+First check you have the correct location path of the files.
+Run: 
+```
+python remoteserver/plot.py
+```
+The prompt will ask for the path of the files, write it and then press enter.
+You should get a plot like this:
+![Image](https://github.com/chanomon/gps-eclipse/blob/main/plot.png)
 
 ## Saving binary data from gpsd:
 ```
@@ -167,4 +176,4 @@ Having previously installed RTKLIB, use the comand:
 ```
 convbin -f 1 outfile.ubx -o rinexfile.obs
 ```
-voila, now you have a rinex file.
+voila,  you should now have a rinex file.
