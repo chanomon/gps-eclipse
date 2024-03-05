@@ -104,8 +104,7 @@ Here you can find more documentation of gps rinex: [https://gpsd.gitlab.io/gpsd/
 
 Once the proces ends, you could get a file of observation like this:
 
-![image](https://github.com/chanomon/gps-eclipse/assets/19211938/35ae3b1e-f98a-4866-8ced-89a4272b6dfa)
-
+<img src="https://github.com/chanomon/gps-eclipse/assets/19211938/35ae3b1e-f98a-4866-8ced-89a4272b6dfa" width="60%" height="60%">
 
 
 
