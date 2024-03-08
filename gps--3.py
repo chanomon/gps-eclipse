@@ -65,8 +65,10 @@ try:
                 records.append(record)
                 print(f"------TPV DATA------\nTime: {time_}, Latitude: {lat}, Longitude: {lon}, Altitude: {alt}")
         if time.time() > end_time:#save as json
-            first_time = records[0]['Time']
-            timestamp = datetime.strptime(first_time, '%Y-%m-%dT%H:%M:%S.%fZ').strftime('%Y-%m-%d_%H-%M-%S')
+            #first_time = records[0]['Time'] When we don't have satellites, it gives problems
+            #if first_time == 'n/a':
+            first_time = str(datetime.now())
+            timestamp = datetime.strptime(first_time, '%Y-%m-%d %H:%M:%S.%f').strftime('%Y-%m-%d_%H-%M-%S')
             filename = f'gps_records_{timestamp}.json'
             with open(PATH+filename, 'w') as file:
                 json.dump(records, file, indent=2)
