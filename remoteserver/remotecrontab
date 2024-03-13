@@ -1,1 +1,1 @@
-*/15 * * * * find /tmp/receive-gps-data -type f -mmin +5 -delete
+*/15 * * * * cd /path/of/json/files/ && mv /tmp/receive-gps-data/* /path/of/json/files/ && ./move_files_to_daily_folders.sh
