@@ -1,1 +1,0 @@
-*/15 * * * * ssh /tmp/send-gps-data/* user@server:/tmp/receive-gps-data/
