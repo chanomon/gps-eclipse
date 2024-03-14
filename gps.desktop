@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=GPS
+Exec=/home/vdelaluz/gps-eclipse/gps/bin/python /home/vdelaluz/gps-eclipse/gps--3.py
+Terminal=true
+Icon=/home/vdelaluz/Pictures/gps.png
