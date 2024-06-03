@@ -6,6 +6,7 @@ from datetime import datetime
 
 
 directorio = input('Write the ubication path of your json files )')
+plotpath = input('write the path where you want to save your plot )')
 
 
 #start_time_str = input("Ingrese el start time en el formato 'YYYY-MM-DDTHH:MM:SS': ")
@@ -47,5 +48,7 @@ plt.figure(figsize=(10, 6))
 plt.scatter(time, snr_values)
 plt.xlabel('Tiempo')
 plt.ylabel('SNR')
-#plt.title()
+
+plt.savefig(plotpath)
 plt.show()
+#plt.title()
