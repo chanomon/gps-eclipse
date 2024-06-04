@@ -18,11 +18,12 @@ plotpath = input('write the path where you want to save your plot )')
 snr_values = []
 time = []
 for directorio in directories:
-
+    #print(directorio)
     jsonfiles = [archivo for archivo in os.listdir(directorio) if archivo.endswith('.json')]
     #print(jsonfiles)
     for jfile in jsonfiles:
-        with open(jfile, 'r') as file:
+        with open(directorio+'/'+jfile, 'r') as file:
+            #print(directorio+'/'+jfile)
             data = json.load(file)
 
     # Obtener los valores de 'SNR' de todos los registros de satélites
