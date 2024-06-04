@@ -18,9 +18,9 @@ plotpath = input('write the path where you want to save your plot )')
 snr_values = []
 time = []
 for directorio in directories:
-    print(directorio)
+    print('reading files from: ',directorio)
     jsonfiles = [archivo for archivo in os.listdir(directorio) if archivo.endswith('.json')]
-    print(jsonfiles)
+    #print(jsonfiles)
     for jfile in jsonfiles:
         with open(directorio+'/'+jfile, 'r') as file:
             #print(directorio+'/'+jfile)
